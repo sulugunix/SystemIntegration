@@ -6,13 +6,11 @@
 
 **Описание системы:**
 Система состоит из двух основных параллельных потоков, запускаемых вручную через Execute workflow:
-Execute workflow → [Поток 1: Синхронизация]            [Поток 2: Экспорт отчета]
-                             ↓                                    ↓
-                   Make spares inactive                Select rows from a table
-                             ↓                                    ↓
-                    Get data from CMS                    Make Proper CSV Format
-                             ↓                                    ↓
-              Insert or update rows in a table                  Report
+Поток 1 (Синхронизация):
+Execute workflow → Make spares inactive → Get data from CMS → Insert or update
+
+Поток 2 (Экспорт):
+Execute workflow → Select rows → Make CSV → Report
 
 ## Поток 1 — Синхронизация CMS → PostgreSQL
 Последовательность узлов:
