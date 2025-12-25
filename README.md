@@ -6,6 +6,7 @@
 
 **Описание системы:**
 Система состоит из двух основных параллельных потоков, запускаемых вручную через Execute workflow:
+
 Поток 1 (Синхронизация):
 Execute workflow → Make spares inactive → Get data from CMS → Insert or update
 
@@ -17,7 +18,7 @@ Execute workflow → Select rows → Make CSV → Report
 
 1. Make spares inactive — делает запчасти неактивными, перед обращением к CMS
 
-2. Get data from CMS — берёт данные у CMS
+2. Get data from CMS — берёт данные у CMS через HTTP-запрос к http://212.237.219.35:8080/students/27/cms/spares
 
 3. Insert or update rows in a table — Новые данные добавляются с статусом 'active', старые не меняются (уже имеют статус 'inactive'), обновлённые данные меняют свой статус из 'inactive' в 'active'
 
